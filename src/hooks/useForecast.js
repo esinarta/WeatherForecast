@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { API_KEY, API_URL } from '../constants';
+import { API_KEY, API_URL, ICON_URL } from '../constants';
 import axios from 'axios';
 
 const lat = 49.2827;
@@ -15,16 +15,32 @@ const useForecast = () => {
   useEffect(() => {
     axios.get(`${API_URL}lat=${lat}&lon=${lon}&exclude=${exclude}&units=${units}&appid=${API_KEY}`)
     .then((res) => {
-      setForecast(res.data.daily);
+      console.log(res);
+      const days = res.data.daily.map((day) => {
+        return {
+          id: new Date(day.dt * 1000).getTime(),
+          date: new Date(day.dt * 1000).toLocaleDateString('en-US', {
+            weekday: 'short',
+            month: 'short',
+            day: 'numeric',
+          }),
+          maxTemp: day.temp.max,
+          minTemp: day.temp.min,
+          weatherDesc: day.weather[0].description,
+          weatherIconUrl: `${ICON_URL}${day.weather[0].icon}@2x.png`
+        }
+      });
+
+      setForecast(days);
       setLoading(false);
     })
     .catch((err) => {
       setError(err);
       setLoading(false);
     })
-  },[])
+  },[]);
 
   return { forecast, loading, error };
-}
+};
 
 export default useForecast;
