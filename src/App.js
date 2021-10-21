@@ -10,6 +10,7 @@ function App() {
 
   return (
     <div className="App">
+      <h1>7-Day Forecast</h1>
       {loading ? <LoadingMessage /> : null}
       {error ? <ErrorMessage /> : null}
       {forecast && !error ? <Forecast forecast={forecast} /> : null}

@@ -1,7 +1,9 @@
 import WeatherCard from '../WeatherCard/WeatherCard';
+import './Forecast.css';
+
 const Forecast = ({ forecast }) => {
   return (
-    <div>
+    <div className='forecast-container'>
       {forecast.map((day, index) => {
         console.log(day);
         return <WeatherCard key={day.id} day={day} index={index}/>

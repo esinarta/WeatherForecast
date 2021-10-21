@@ -24,8 +24,8 @@ const useForecast = () => {
             month: 'short',
             day: 'numeric',
           }),
-          maxTemp: day.temp.max,
-          minTemp: day.temp.min,
+          maxTemp: Math.round(day.temp.max),
+          minTemp: Math.round(day.temp.min),
           weatherDesc: day.weather[0].description,
           weatherIconUrl: `${ICON_URL}${day.weather[0].icon}@2x.png`
         }

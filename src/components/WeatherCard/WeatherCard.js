@@ -1,10 +1,14 @@
+import './WeatherCard.css';
+
 const WeatherCard = ({ day, index }) => {
   return (
-    <div className={`${index === 0 ? "firstDay" : ""}`}>
+    <div className={`card-container ${index === 0 ? "current-day" : ""}`}>
       <p>{day.date}</p>
       <img src={day.weatherIconUrl} alt={day.weatherDesc}/>
-      <p>{day.minTemp}&deg;</p>
-      <p>{day.maxTemp}&deg;</p>
+      <div className='temperature'>
+        <p>H: {day.maxTemp}&deg;</p>
+        <p>L: {day.minTemp}&deg;</p>
+      </div>
     </div>
   )
 };
