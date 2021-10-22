@@ -1,11 +1,6 @@
 import { useState, useEffect } from 'react';
-import { API_KEY, API_URL, ICON_URL } from '../constants';
+import { API_KEY, API_URL, ICON_URL, VANCOUVER } from '../constants';
 import axios from 'axios';
-
-const lat = 49.2827;
-const lon = -123.1207;
-const exclude = 'current,minutely,hourly,alerts';
-const units = 'metric';
 
 const useForecast = () => {
   const [forecast, setForecast] = useState([]);
@@ -13,8 +8,10 @@ const useForecast = () => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    axios.get(`${API_URL}lat=${lat}&lon=${lon}&exclude=${exclude}&units=${units}&appid=${API_KEY}`)
-    .then((res) => {
+    axios.get(`${API_URL}lat=${VANCOUVER.lat}&lon=${VANCOUVER.lon}`
+      + `&exclude=current,minutely,hourly,alerts`
+      + `&units=metric&appid=${API_KEY}`
+    ).then((res) => {
       console.log(res);
       const days = res.data.daily.map((day) => {
         return {
@@ -30,7 +27,6 @@ const useForecast = () => {
           weatherIconUrl: `${ICON_URL}${day.weather[0].icon}@2x.png`
         }
       });
-
       setForecast(days);
       setLoading(false);
     })
