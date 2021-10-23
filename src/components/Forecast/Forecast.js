@@ -5,7 +5,6 @@ const Forecast = ({ forecast }) => {
   return (
     <div className='forecast-container'>
       {forecast.map((day, index) => {
-        console.log(day);
         return <WeatherCard key={day.id} day={day} index={index}/>
       })}
     </div>

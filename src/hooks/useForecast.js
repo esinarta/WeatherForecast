@@ -1,14 +1,14 @@
 import { useState, useEffect } from 'react';
-import { API_KEY, API_URL, ICON_URL, VANCOUVER } from '../constants';
+import { API_KEY, API_URL, ICON_URL } from '../constants';
 import axios from 'axios';
 
-const useForecast = () => {
+const useForecast = (city) => {
   const [forecast, setForecast] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-
+  console.log(city);
   useEffect(() => {
-    axios.get(`${API_URL}lat=${VANCOUVER.lat}&lon=${VANCOUVER.lon}`
+    axios.get(`${API_URL}lat=${city.lat}&lon=${city.lon}`
       + `&exclude=current,minutely,hourly,alerts`
       + `&units=metric&appid=${API_KEY}`
     ).then((res) => {
@@ -34,7 +34,7 @@ const useForecast = () => {
       setError(err);
       setLoading(false);
     })
-  },[]);
+  },[city.lat, city.lon]);
 
   return { forecast, loading, error };
 };
