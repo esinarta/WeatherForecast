@@ -4,7 +4,7 @@ import axios from 'axios';
 
 const useForecast = (city) => {
   const [forecast, setForecast] = useState([]);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {

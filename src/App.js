@@ -11,8 +11,12 @@ function App() {
   return (
     <div className="App">
       <h1>Vancouver 7-Day Forecast</h1>
-      {loading ? <LoadingMessage /> : null}
-      {error ? <ErrorMessage /> : null}
+      <div className="status-message">
+        {loading ? <LoadingMessage /> : null}
+      </div>
+      <div className="status-message">
+        {error ? <ErrorMessage /> : null}
+      </div>
       <div className="forecast">
         {forecast && !error ? <Forecast forecast={forecast} /> : null}
       </div>
