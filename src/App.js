@@ -10,7 +10,7 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Vancouver 7-Day Forecast</h1>
+      <h1>7-Day Forecast</h1>
       <div className="status-message">
         {loading ? <LoadingMessage /> : null}
       </div>

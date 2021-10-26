@@ -4,8 +4,8 @@ import './Forecast.css';
 const Forecast = ({ forecast }) => {
   return (
     <div className='forecast-container'>
-      {forecast.map((day, index) => {
-        return <WeatherCard key={day.id} day={day} index={index}/>
+      {forecast.map((day) => {
+        return <WeatherCard key={day.id} day={day} />
       })}
     </div>
   )

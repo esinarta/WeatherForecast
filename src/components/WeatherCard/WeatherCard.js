@@ -1,8 +1,8 @@
 import './WeatherCard.css';
 
-const WeatherCard = ({ day, index }) => {
+const WeatherCard = ({ day }) => {
   return (
-    <div className={`card-container ${index === 0 ? "current-day" : ""}`}>
+    <div className='card-container'>
       <p>{day.date}</p>
       <img src={day.weatherIconUrl} alt={day.weatherDesc}/>
       <div className='temperature'>
