@@ -4,6 +4,6 @@ const LoadingMessage = () => {
       <p>Loading...</p>
     </div>
   )
-};
+}
 
 export default LoadingMessage;

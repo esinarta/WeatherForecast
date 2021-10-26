@@ -9,6 +9,6 @@ const Forecast = ({ forecast }) => {
       })}
     </div>
   )
-};
+}
 
 export default Forecast;

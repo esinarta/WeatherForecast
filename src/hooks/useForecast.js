@@ -40,6 +40,6 @@ const useForecast = (city) => {
   }, [city.lat, city.lon]);
 
   return { forecast, loading, error };
-};
+}
 
 export default useForecast;

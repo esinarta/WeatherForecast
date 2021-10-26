@@ -4,6 +4,6 @@ const ErrorMessage = ({ error }) => {
       <p>{error}</p>
     </div>
   )
-};
+}
 
 export default ErrorMessage;
